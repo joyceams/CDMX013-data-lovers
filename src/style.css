@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Asul&display=swap');
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Asul', sans-serif;
+}
+
 body 
 {
     background-image: url("https://cdnb.artstation.com/p/assets/images/images/015/609/793/large/artur-sadlos-leg-more-sh220-background-as-v002.jpg?1548954985");
@@ -7,14 +14,48 @@ body
 
 .centrado{
     text-align: center;
+    padding: 20px 20px;
 }
 
 #Introduccion{
+    width: 40%;
+    margin: auto;
     font-size: 18px;
-    font-family: 'Asul', sans-serif;
     background-color:#2a292986 ;
     color: #C7C7C7;
     border-radius: 5px;
     text-align: center;
     padding: 7px 7px;
+    content: auto;
+}
+
+/*PARTE PRINCIPAL*/
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+/*TARJETAS LOLSITO*/
+
+.card{
+    width: 100%;
+}
+
+.card > img{
+    width: 100%;
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 5px;
+}
+
+.card > h3{
+    color: #c7c7c7;
+    text-align: center;
+    font-size: 13px;
+    padding: 7px 5px;
+    background-color: #1D1E26; opacity:0.6;
+    border-radius: 5px;
+    border: 1px solid rgb(99, 98, 98)
+    
 }
