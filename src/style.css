@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Asul&display=swap');
+
+body 
+{
+    background-image: url("https://cdnb.artstation.com/p/assets/images/images/015/609/793/large/artur-sadlos-leg-more-sh220-background-as-v002.jpg?1548954985");
+}
+
+.centrado{
+    text-align: center;
+}
+
+#Introduccion{
+    font-size: 18px;
+    font-family: 'Asul', sans-serif;
+    background-color:#2a292986 ;
+    color: #C7C7C7;
+    border-radius: 5px;
+    text-align: center;
+    padding: 7px 7px;
+}
