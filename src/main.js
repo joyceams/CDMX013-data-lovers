@@ -6,23 +6,28 @@ const main = document.querySelector('main')
 const data=allData.data 
 
 const keys = Object.keys(data);
+
 for (let i = 0; i < keys.length; i++){
     let key = keys[i];
-    //console.log(data[key]);
+    let characters = data[key].name;
+    let images = data[key].splash;
+    let roles = data[key].tags
+console.log(roles)
+champions (characters, images, roles)
 }
 
-keys.forEach(k => {
-    console.log(k)
+function champions(characters, images, roles){
+    
     const card = document.createElement('div')
     card.className = "card"
 
     const img = document.createElement('img')
-    img.src = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viego_0.jpg"
+    img.src = images;
 
     const titleName = document.createElement('h3')
-    titleName.textContent = "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    titleName.textContent = characters + ' ' + roles;
 
     card.append(img, titleName)
     main.append(card)
-})
+}
 
