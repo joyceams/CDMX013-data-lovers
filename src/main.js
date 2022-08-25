@@ -1,9 +1,8 @@
 import allData from './data/lol/lol.js'
 
 const main = document.querySelector('main')
-//const root = document.getElementById('root')
 
-let campeones = []// Haciendo array
+let campeones = [];// Haciendo array
 
 const data=allData.data //Se importa la data en una variable "data"
 
@@ -11,15 +10,15 @@ const keys = Object.keys(data);
 //console.log(keys.at(0)) // -> Sirve para acceder solamente al elemento seleccionado
 
 
-for (let i = 0; i < keys.length; i++)
-{
+for (let i = 0; i < keys.length; i++){
     campeones.push(data[keys[i]]) //Haciendo push a champions
 
 }
 
 console.log(campeones)
+
 campeones.forEach (campeon =>{
-    console.log(campeon.name);
+    console.log(campeon.name)
 })
 
 const personajes = Object.entries(data);
@@ -31,30 +30,29 @@ for (let i = 0; i < keys.length; i++){
     let key = keys[i];
     let characters = data[key].name;
     let images = data[key].splash;
-    let roles = data[key].tags
+    let roles = data[key].tags;
     //roles.push(data[key].tags)
     console.log(roles);
 
-    champions (characters, images, roles)
+    champions (characters, images)
 }
-
 
 //console.log(roles[0][0]);
 
 function champions(characters, images, roles){
 
     const card = document.createElement('div')
-	function champions(characters, images, roles){
+    card.className = "card";
+    
+    const img = document.createElement('img')
     img.src = images;
 
     const titleName = document.createElement('h3')
-    titleName.textContent = characters + ' ' + roles;
+    titleName.textContent = characters //+ ' ' + roles;
 
     card.append(img, titleName)
     main.append(card)
 }
-}
-
 
 
 ////////// Haciendo filtrado
