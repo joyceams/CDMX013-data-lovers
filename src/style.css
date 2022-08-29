@@ -9,9 +9,12 @@
 
 body 
 {
-    background-image: url("https://cdnb.artstation.com/p/assets/images/images/015/609/793/large/artur-sadlos-leg-more-sh220-background-as-v002.jpg?1548954985");
-    background-repeat: repeat-y;
-    background-size: 100%;
+    background-image: url("https://cdnb.artstation.com/p/assets/images/images/015/609/793/large/artur-sadlos-leg-more-sh220-background-as-v002.jpg?1548954985");  
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 20em;
+
 }
 
 .centrado{
@@ -29,6 +32,40 @@ body
     text-align: center;
     padding: 7px 7px;
     content: auto;
+}
+
+.menu{
+    width: 40%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    font-size: 18px;
+    background-color:#2a292986 ;
+    color: #C7C7C7;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    padding: 7px 7px;
+    content: auto;
+}
+
+#roles{
+    width: auto;
+    color: #c7c7c7c7;
+    background: #2a292986;
+    border-radius: 5px;
+    padding: 5px 5px;
+    text-align: center;
+}
+
+#partype{
+    width: auto;
+    color: #c7c7c7c7;
+    background: #2a292986;
+    border-radius: 5px;
+    padding: 5px 5px;
+    text-align: center;
 }
 
 /*PARTE PRINCIPAL*/
