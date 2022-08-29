@@ -54,9 +54,16 @@ function champions(characters, images, roles){
     main.append(card)
 }
 
+/////Filtrado con .filter
 
-////////// Haciendo filtrado
-let filtrados = [] // Solo los campeones que coincidan con el rol seleccionado
+const tags = ["Mage","Support","Tank","Fighter","Marksman","Assassin"];
+
+const result = tags.filter(tags => tags.length > 6);
+
+console.log(result);
+
+////////// Haciendo filtrado (resultó ser un filtrado manual, se nos recomendó usar mejor .filter o .map)
+/*let filtrados = [] // Solo los campeones que coincidan con el rol seleccionado
 const roles = ["Mage","Support","Tank","Fighter","Marksman","Assassin"]  //Definiendo un array con todos los roles posibles
 for (let i = 0; i < keys.length; i++){
     let key = keys[i];
@@ -68,7 +75,7 @@ for (let i = 0; i < keys.length; i++){
     }
 }
 
-console.log(filtrados);
+console.log(filtrados);*/
 
 // function OnSelected() {
 //if( data[key].tags[j] == document.getElementByID("CuadroDeseleccion").string())
