@@ -23,8 +23,14 @@ console.log('campeones', campeones)
 const personajes = Object.entries(data);
 console.log('personajes', personajes)
 
+//// ----------------------------------------------Lo que hicimos con Christian 
+const difficultysPrueba = campeones.filter(campeon=>{
+    return campeon.info.difficulty=="5"
+})
+console.log(difficultysPrueba)
+
 //------lo que hicimos con Dani
-let rol = 'Assassin'
+let rol = 'Assassing'
 let todosLosRoles = 
 campeones.filter(
     function (personaje){
@@ -52,6 +58,9 @@ for (let i = 0; i < keys.length; i++){
 
     champions (characters, images, roles)
 }
+
+//console.log(roles[0][0]);
+
 function champions(characters, images, roles){
 
     const card = document.createElement('div')
@@ -72,20 +81,30 @@ function champions(characters, images, roles){
 }
     
 
+
+/////Filtrado con .filter
+
 //----------Esto fue con lo que nos ayudó rosa pero no jala bien
     /*const lokoshon = () => {
         let personajesRoles = [];
-       for (let i = 0; i < keys.length; i++) {
+    for (let i = 0; i < keys.length; i++) {
         personajesRoles = data[keys.at(i)].filter(item => {
             item.tags === roles
         })
         
-       }
-       console.log(personajesRoles)
+    }
+    console.log(personajesRoles)
     }*/
 
-////////// Haciendo filtrado
-let filtrados = [] // Solo los campeones que coincidan con el rol seleccionado
+
+const tags = ["Mage","Support","Tank","Fighter","Marksman","Assassin"];
+
+const result = tags.filter(tags => tags.length > 6);
+
+console.log(result);
+
+////////// Haciendo filtrado (resultó ser un filtrado manual, se nos recomendó usar mejor .filter o .map)
+/*let filtrados = [] // Solo los campeones que coincidan con el rol seleccionado
 const roles = ["Mage","Support","Tank","Fighter","Marksman","Assassin"]  //Definiendo un array con todos los roles posibles
 for (let i = 0; i < keys.length; i++){
     let key = keys[i];
@@ -97,7 +116,7 @@ for (let i = 0; i < keys.length; i++){
     }
 }
 
-console.log(filtrados);
+console.log(filtrados);*/
 
 // function OnSelected() {
 //if( data[key].tags[j] == document.getElementByID("CuadroDeseleccion").string())
