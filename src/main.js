@@ -12,10 +12,7 @@ const keys = Object.keys(data);
 
 for (let i = 0; i < keys.length; i++){
     campeones.push(data[keys[i]]) //Haciendo push a champions
-
 }
-
-console.log(campeones)
 
 campeones.forEach (campeon =>{
     console.log(campeon.name)
