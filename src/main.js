@@ -4,6 +4,8 @@ const main = document.querySelector('main')
 
 let campeones = [];// Haciendo array
 
+let roleSelector = document.getElementById ("roles")
+
 const data=allData.data //Se importa la data en una variable "data"
 
 const keys = Object.keys(data);
@@ -14,35 +16,49 @@ for (let i = 0; i < keys.length; i++){
     campeones.push(data[keys[i]]) //Haciendo push a champions
 }
 
-campeones.forEach (campeon =>{
-    //console.log(campeon.tags)
-})
+
+
+
+//const personajes = Object.entries(data);
 console.log('campeones', campeones)
-
-
-const personajes = Object.entries(data);
-console.log('personajes', personajes)
+//console.log('personajes', personajes)
 
 //// ----------------------------------------------Lo que hicimos con Christian 
 const difficultysPrueba = campeones.filter(campeon=>{
     return campeon.info.difficulty=="5"
 })
 console.log(difficultysPrueba)
-
+console.log(difficultysPrueba[0].name)
 //------lo que hicimos con Dani
-let rol = 'Assassing'
-let todosLosRoles = 
-campeones.filter(
-    function (personaje){
-    let resultado = false
-    for (let j=0; j < personaje.tags.length; j++) {
-        if( personaje.tags[j] == rol) {
-            resultado = true
-        }
-    } return resultado
-})
 
-console.log(todosLosRoles)
+
+//let roles = ["Mage","Support","Tank","Fighter","Marksman","Assassin"]
+roleSelector.addEventListener('change', (event) =>{
+    let rolSeleccionado = event.target.value
+    let todosLosRoles = campeones.filter(campeon=>{
+        let resultado = false
+        for (let j=0; j <campeon.tags.length; j++) {
+            if( campeon.tags[j] == rolSeleccionado) {
+                resultado = true
+                break
+            }
+        } 
+        return resultado
+        
+    })
+    main.innerHTML='';
+    for(let i=0; i< todosLosRoles.length; i++){
+        console.log(todosLosRoles[i].name)
+        
+        let characters = todosLosRoles[i].name;
+        let images = todosLosRoles[i].splash;
+        let roles = todosLosRoles[i].tags;
+        champions (characters, images, roles)
+    }
+});
+
+
+
 
 //let roles = [];
 
