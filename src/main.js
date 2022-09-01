@@ -22,7 +22,7 @@ console.log('campeones', campeones)
 
 //// ----------------------------------------------Lo que hicimos con Christian 
 const difficultysPrueba = campeones.filter(campeon=>{
-    return campeon.info.difficulty=="5"
+    return campeon.info.difficulty=="2"
 })
 console.log(difficultysPrueba)
 
@@ -31,18 +31,26 @@ console.log(difficultysPrueba)
 
 //let roles = ["Mage","Support","Tank","Fighter","Marksman","Assassin"]
 roleSelector.addEventListener('change', (event) =>{
+    console.log("evento value",event.target.value)
     let rolSeleccionado = event.target.value
-    let todosLosRoles = campeones.filter(campeon=>{
-        let resultado = false
-        for (let j=0; j <campeon.tags.length; j++) {
-            if( campeon.tags[j] == rolSeleccionado) {
-                resultado = true
-                break
-            }
-        } 
-        return resultado
-        
-    })
+    let todosLosRoles=[]
+    if(rolSeleccionado == "Role"){
+        todosLosRoles = campeones 
+    }
+    else{
+        todosLosRoles = campeones.filter(campeon=>{
+            let resultado = false
+            for (let j=0; j <campeon.tags.length; j++) {
+                if( campeon.tags[j] == rolSeleccionado) {
+                    resultado = true
+                    break
+                }
+            } 
+            return resultado
+            
+        })
+    }
+    
     main.innerHTML='';
     for(let i=0; i< todosLosRoles.length; i++){
         console.log(todosLosRoles[i].name)
