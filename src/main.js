@@ -16,9 +16,6 @@ for (let i = 0; i < keys.length; i++){
     campeones.push(data[keys[i]]) //Haciendo push a champions
 }
 
-
-
-
 //const personajes = Object.entries(data);
 console.log('campeones', campeones)
 //console.log('personajes', personajes)
@@ -28,7 +25,7 @@ const difficultysPrueba = campeones.filter(campeon=>{
     return campeon.info.difficulty=="5"
 })
 console.log(difficultysPrueba)
-console.log(difficultysPrueba[0].name)
+
 //------lo que hicimos con Dani
 
 
@@ -58,8 +55,6 @@ roleSelector.addEventListener('change', (event) =>{
 });
 
 
-
-
 //let roles = [];
 
 
@@ -69,8 +64,6 @@ for (let i = 0; i < keys.length; i++){
     let characters = data[key].name;
     let images = data[key].splash;
     let roles = data[key].tags;
-    //roles.push(data[key].tags)
-    //console.log(roles);
 
     champions (characters, images, roles)
 }
