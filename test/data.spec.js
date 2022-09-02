@@ -1,7 +1,7 @@
 import { example, anotherExample } from '../src/data.js';
 
 
-describe('example', () => {
+/*describe('example', () => {
   it('is a function', () => {
     expect(typeof example).toBe('function');
   });
@@ -19,5 +19,18 @@ describe('anotherExample', () => {
 
   it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
+  });
+});
+*/
+
+describe('pruebaconChristian', () => {
+  const miNombre = 'Joyce'
+  it('is a string', () => {
+    
+    expect(typeof miNombre).toBe('string');
+  });
+
+  it('is Joyce', () => {
+    expect(miNombre).toBe('Joyce');
   });
 });

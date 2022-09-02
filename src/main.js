@@ -1,3 +1,4 @@
+import { filterByRol } from './data.js';
 import allData from './data/lol/lol.js'
 
 const main = document.querySelector('main')
@@ -5,6 +6,7 @@ const main = document.querySelector('main')
 let campeones = [];// Haciendo array
 
 let roleSelector = document.getElementById ("roles")
+let difficultySelector = document.getElementById("difficulty")
 
 const data=allData.data //Se importa la data en una variable "data"
 
@@ -21,49 +23,46 @@ console.log('campeones', campeones)
 //console.log('personajes', personajes)
 
 //// ----------------------------------------------Lo que hicimos con Christian 
-const difficultysPrueba = campeones.filter(campeon=>{
+/*const difficultysPrueba = campeones.filter(campeon=>{
     return campeon.info.difficulty=="2"
 })
-console.log(difficultysPrueba)
+console.log(difficultysPrueba)*/
 
 //------lo que hicimos con Dani
-
-
-//let roles = ["Mage","Support","Tank","Fighter","Marksman","Assassin"]
 roleSelector.addEventListener('change', (event) =>{
     console.log("evento value",event.target.value)
     let rolSeleccionado = event.target.value
-    let todosLosRoles=[]
-    if(rolSeleccionado == "Role"){
-        todosLosRoles = campeones 
-    }
-    else{
-        todosLosRoles = campeones.filter(campeon=>{
-            let resultado = false
-            for (let j=0; j <campeon.tags.length; j++) {
-                if( campeon.tags[j] == rolSeleccionado) {
-                    resultado = true
-                    break
-                }
-            } 
-            return resultado
-            
-        })
-    }
+
+    const todosLosRoles = filterByRol(rolSeleccionado, campeones)
     
     main.innerHTML='';
-    for(let i=0; i< todosLosRoles.length; i++){
-        console.log(todosLosRoles[i].name)
-        
-        let characters = todosLosRoles[i].name;
-        let images = todosLosRoles[i].splash;
-        let roles = todosLosRoles[i].tags;
+    todosLosRoles.forEach(campeon=>{
+        let characters = campeon.name;
+        let images = campeon.splash;
+        let roles = campeon.tags;
         champions (characters, images, roles)
-    }
+    })
 });
 
+difficultySelector.addEventListener('change', (event) =>{
+    let difficultySeleccionado = event.target.value
+    const todosLosRoles = filterByRol(roleSelector.value, campeones)
+    
+    const difficultyFiltered = todosLosRoles.filter(campeon =>{       
+        return campeon.info.difficulty == Number (difficultySeleccionado)
+    })
+    console.log(difficultyFiltered)
+    
+    main.innerHTML='';
+    difficultyFiltered.forEach (campeon =>{
+        let characters = campeon.name;
+        let images = campeon.splash;
+        let roles = campeon.tags;
+        champions (characters, images, roles)
+    })
+});
+    
 
-//let roles = [];
 
 
 //---------- ciclo for y función para jalar la data a las tarjetas
@@ -114,7 +113,7 @@ function champions(characters, images, roles){
     }*/
 
 
-const tags = ["Mage","Support","Tank","Fighter","Marksman","Assassin"];
+/*const tags = ["Mage","Support","Tank","Fighter","Marksman","Assassin"];
 
 const result = tags.filter(tags => tags.length > 6);
 
