@@ -1,14 +1,18 @@
-import { filterByRol } from './data.js';
 import allData from './data/lol/lol.js'
+import { filterByRol } from './data.js';
 
 const main = document.querySelector('main')
+const data=allData.data //Se importa la data en una variable "data"
 
 let campeones = [];// Haciendo array
 
 let roleSelector = document.getElementById ("roles")
 let difficultySelector = document.getElementById("difficulty")
 
-const data=allData.data //Se importa la data en una variable "data"
+let rolSeleccionado = "All"; //Para el filtrado conjunto
+let difficultySeleccionado = "All";
+
+
 
 const keys = Object.keys(data);
 //console.log(keys.at(0)) // -> Sirve para acceder solamente al elemento seleccionado
@@ -28,42 +32,64 @@ console.log('campeones', campeones)
 })
 console.log(difficultysPrueba)*/
 
-//------lo que hicimos con Dani
-roleSelector.addEventListener('change', (event) =>{
-    console.log("evento value",event.target.value)
-    let rolSeleccionado = event.target.value
+//------lo que hicimos con Dani-----Ejecuta la opcion de filtrado 
 
-    const todosLosRoles = filterByRol(rolSeleccionado, campeones)
+// roleSelector.addEventListener('change', (event) =>{
+//     console.log("evento value",event.target.value)
+//     let rolSeleccionado = event.target.value
+//     //const todosLosRoles = filterByRol(rolSeleccionado, campeones)
+//     const difficultySeleccionado =filterByRol(rolSeleccionado,campeones)
+//     const rolFiltrado= filterByRol(rolSeleccionado, difficultySeleccionado)
+
+//     main.innerHTML='';
+//     rolFiltrado.forEach(campeon=>{
+//         let characters = campeon.name;
+//         let images = campeon.splash;
+//         let roles = campeon.tags;
+//         champions (characters, images, roles)
+//     })
+// });
+
+// difficultySelector.addEventListener('change', (event) =>{
+//     let difficultySeleccionado = event.target.value
+//     const rolesFiltrados = filterByRol(roleSelector.value, campeones)
     
+//     const difficultyFiltered = filterDificultad(difficultySeleccionado, rolesFiltrados)
+//     console.log(difficultyFiltered)
+    
+//     main.innerHTML='';
+//     difficultyFiltered.forEach (campeon =>{
+//         let characters = campeon.name;
+//         let images = campeon.splash;
+//         let roles = campeon.tags;
+//         champions (characters, images, roles)
+//     })
+// });
+
+function filtradoConjunto() {
+
+    const campeonesFiltrados= filterByRol(campeones, rolSeleccionado, difficultySeleccionado);
+
     main.innerHTML='';
-    todosLosRoles.forEach(campeon=>{
+    campeonesFiltrados.forEach(campeon=>{
         let characters = campeon.name;
         let images = campeon.splash;
         let roles = campeon.tags;
         champions (characters, images, roles)
     })
+}
+
+roleSelector.addEventListener('change', (event) => {
+    rolSeleccionado = event.target.value // Para cuando cambia el rol
+    filtradoConjunto();
 });
 
 difficultySelector.addEventListener('change', (event) =>{
-    let difficultySeleccionado = event.target.value
-    const todosLosRoles = filterByRol(roleSelector.value, campeones)
-    
-    const difficultyFiltered = todosLosRoles.filter(campeon =>{       
-        return campeon.info.difficulty == Number (difficultySeleccionado)
-    })
-    console.log(difficultyFiltered)
-    
-    main.innerHTML='';
-    difficultyFiltered.forEach (campeon =>{
-        let characters = campeon.name;
-        let images = campeon.splash;
-        let roles = campeon.tags;
-        champions (characters, images, roles)
-    })
+    difficultySeleccionado = event.target.value // Para cuando cambia la difficultad
+    filtradoConjunto();
 });
-    
 
-
+//-------------------------------Hasta aqui terminan los filtrados 
 
 //---------- ciclo for y función para jalar la data a las tarjetas
 for (let i = 0; i < keys.length; i++){
@@ -96,6 +122,9 @@ function champions(characters, images, roles){
     main.append(card)
 }
     
+
+
+
 
 
 /////Filtrado con .filter
