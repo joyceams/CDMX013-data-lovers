@@ -1,5 +1,3 @@
-// estas funciones son de ejemplo
-
 export const filterByRol = (campeones, rolSeleccionado, difficultySeleccionado) => {
     console.log("================");
     console.log(rolSeleccionado);
@@ -12,7 +10,8 @@ export const filterByRol = (campeones, rolSeleccionado, difficultySeleccionado) 
     else{
         todosLosRoles = campeones.filter(campeon =>{
         let resultado = false
-        if(rolSeleccionado=="All") { return campeon.info.difficulty == Number(difficultySeleccionado)}
+        if(rolSeleccionado=="All") {
+          return campeon.info.difficulty == Number(difficultySeleccionado)}
         else if(difficultySeleccionado=="All")
         {
             for (let j=0; j <campeon.tags.length; j++) {
@@ -36,15 +35,20 @@ export const filterByRol = (campeones, rolSeleccionado, difficultySeleccionado) 
     return todosLosRoles
 }
 
-// export const filterByDifficulty
-// export const filterDificultad=(difficultySeleccionado, campeones)=>{
-//     return campeones.filter(campeon =>{       
-//     //return campeon.info.difficulty == Number (difficultySeleccionado)
-//     if(difficultySeleccionado == "All"){
-//         return true
-//     }
-//     else {
-//         return campeon.info.difficulty == Number(difficultySeleccionado)
-//     }
-// })
-// }
+export const sortChampionsAscend = (campeones) => {
+  campeones.sort ((a, b) => {
+    if (a.name < b.name) {
+        return -1;
+    }else 
+        return 1;
+    }
+)}
+
+export const sortChampionsDescend= (campeones) => {
+  campeones.sort ((a, b) => {
+    if (a.name > b.name) {
+         return -1;
+    }else 
+        return 1;
+    }
+)}

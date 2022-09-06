@@ -68,6 +68,15 @@ body
     text-align: center;
 }
 
+#sorting{
+    width: auto;
+    color: #c7c7c7c7;
+    background: #2a292986;
+    border-radius: 5px;
+    padding: 5px 5px;
+    text-align: center;
+}
+
 /*PARTE PRINCIPAL*/
 
 main{
