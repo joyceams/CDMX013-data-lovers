@@ -1,5 +1,5 @@
 export const filterByRol = (campeones, rolSeleccionado, difficultySeleccionado) => {
- 
+  
   let todosLosRoles = []
   if (rolSeleccionado === 'All' && difficultySeleccionado === 'All') {
     todosLosRoles = campeones
