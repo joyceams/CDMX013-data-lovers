@@ -6,7 +6,6 @@ export default {
     Aatrox: {
       version: "6.24.1",
       id: "Aatrox",
-      id: "Aatrox",
       key: "266",
       name: "Aatrox",
       title: "the Darkin Blade",
