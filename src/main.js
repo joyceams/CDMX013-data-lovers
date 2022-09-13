@@ -34,7 +34,7 @@ function filtradoConjunto () {
     //haciendo el calculo de Porcentaje de  campeones con el rol seleccionado
     const porcentaje = campeonesFiltrados.length / campeones.length  
     console.log("===============");
-    console.log("Porcentaje de campeones " + rolSeleccionado + " con dificultad de " + difficultySeleccionado + ": " + porcentaje*100 + "\%");
+    console.log("Porcentaje de campeones " + rolSeleccionado + " con dificultad de " + difficultySeleccionado + ": " + porcentaje*100 + "%");
     console.log("===============");
 
 }
