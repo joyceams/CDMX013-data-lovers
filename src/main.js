@@ -16,7 +16,7 @@ let difficultySeleccionado = 'All'
 const keys = Object.keys(data)
 // console.log(keys.at(0)) // -> Sirve para acceder solamente al elemento seleccionado
 
-// ------- Lo que hicimos con Chris
+// Lo que hicimos con Chris
 for (let i = 0; i < keys.length; i++) {
   campeones.push(data[keys[i]]) // Haciendo push a champions
 }
@@ -31,7 +31,7 @@ function filtradoConjunto () {
     const roles = campeon.tags
     champions(characters, images, roles)
     })
-    //haciendo el calculo de Porcentaje de  campeones con el rol seleccionado
+    // Haciendo el calculo de Porcentaje de  campeones con el rol seleccionado
     const porcentaje = campeonesFiltrados.length / campeones.length  
     console.log("===============");
     console.log("Porcentaje de campeones " + rolSeleccionado + " con dificultad de " + difficultySeleccionado + ": " + porcentaje*100 + "%");
@@ -49,7 +49,7 @@ difficultySelector.addEventListener('change', (event) => {
     filtradoConjunto()
 })
 
-// -------------------------------Hasta aqui terminan los filtrados
+// Hasta aqui terminan los filtrados
 
 // Para el ordenado
 
@@ -57,24 +57,11 @@ sortSelector.addEventListener('change', (event) => {
     const campeonesCopy = [...campeones]
     if (event.target.value === 'A to Z') {
     sortChampionsAscend(campeones)
-    /* campeones.sort ((a, b) => {
-            if (a.name < b.name) {
-                return -1;
-            }else
-                return 1;
-            }
-        ) */
     }
 
     if (event.target.value === 'Z to A') {
     sortChampionsDescend(campeones)
-    /* campeones.sort ((a, b) => {
-        if (a.name > b.name) {
-                return -1;
-        }else
-            return 1;
-        }
-    ) */ }
+    }
     filtradoConjunto(campeonesCopy)
 })
 
@@ -97,10 +84,6 @@ function champions (characters, images, roles) {
 
     const titleName = document.createElement('h3')
     titleName.textContent = characters + ' ' + roles
-
-    /* card.addEventListener('click', function(){
-        lokoshon();
-    }) */
 
     card.append(img, titleName)
     main.append(card)

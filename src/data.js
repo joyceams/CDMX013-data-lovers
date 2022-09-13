@@ -30,23 +30,20 @@ export const filterByRol = (campeones, rolSeleccionado, difficultySeleccionado) 
 }
 
 export const sortChampionsAscend = (campeones) => {
-  campeones.sort((a, b) => {
+ return campeones.sort((a, b) => {
     if (a.name < b.name) {
       return -1
     } else { return 1 }
   }
   )
-  return campeones.sort
 }
 
 export const sortChampionsDescend = (campeones) => {
-  campeones.sort((a, b) => {
+  return campeones.sort((a, b) => {
     if (a.name > b.name) {
       return -1
     } else { return 1 }
   }
   )
-  return campeones.sort
 }
 
-export default { filterByRol, sortChampionsAscend, sortChampionsDescend }

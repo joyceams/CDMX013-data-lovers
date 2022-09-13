@@ -1,16 +1,16 @@
-import { filterByRol } from '../src/data.js'
+import { filterByRol, sortChampionsAscend, sortChampionsDescend } from '../src/data.js'
 import allData from '../src/data/lol/lol.js'
 
-const campeones = [
+const campeones2 = [
     {
-      name:"Aatrox",
+      name: "Aatrox",
     info: {
       difficulty: 4
     },
     tags: ["Fighter", "Tank"]
   },
   {
-    name:"Jinx",
+    name: "Jinx",
     info: {
       difficulty: 6
     },
@@ -24,7 +24,7 @@ const campeones = [
     tags: ["Mage", "Support"]
   },
   {
-    name:"Viktor",
+    name: "Viktor",
     info: {
       difficulty: 9
     },
@@ -42,6 +42,68 @@ const correctFilter = [
   },
 ]
 
+const campeones3 = [
+  {
+  name:"Viktor",
+  info: {
+    difficulty: 9
+  },
+  tags: ["Mage"]
+},
+{
+  name: "Lux",
+  info: {
+    difficulty: 5
+  },
+  tags: ["Mage", "Support"]
+},
+{
+  name:"Jinx",
+  info: {
+    difficulty: 6
+  },
+  tags: ["Marksman"]
+},
+  {
+    name:"Aatrox",
+  info: {
+    difficulty: 4
+  },
+  tags: ["Fighter", "Tank"]
+}
+]
+
+const campeones = [
+  
+{
+  name:"Jinx",
+  info: {
+    difficulty: 6
+  },
+  tags: ["Marksman"]
+},
+{
+  name:"Viktor",
+  info: {
+    difficulty: 9
+  },
+  tags: ["Mage"]
+},
+{
+  name:"Aatrox",
+info: {
+  difficulty: 4
+},
+tags: ["Fighter", "Tank"]
+},
+{
+  name: "Lux",
+  info: {
+    difficulty: 5
+  },
+  tags: ["Mage", "Support"]
+},
+]
 
 describe('data', () => {
   it('is an object', () => {
@@ -62,25 +124,16 @@ it('Filters the champions by their rol', () => {
   expect(filterByRol(campeones, rolSeleccionado, difficultySeleccionado)).toEqual(correctFilter);
 })
 
-
-/*
-describe('anotherExample', () => {
+describe('sortChampionsAscend', () => {
   it('is a function', () => {
-    expect(typeof anotherExample).toBe('function')
+    expect(typeof sortChampionsAscend).toBe('function')
   })
  
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG')
+  it('Sorts champions from A to Z', () => {
+    expect(sortChampionsAscend(campeones)).toEqual(campeones2)
   })
-}) */
-
-describe('pruebaconChristian', () => {
-  const miNombre = 'Joyce'
-  it('is a string', () => {
-    expect(typeof miNombre).toBe('string')
+})
+  it('Sorts champions from Z to A', () => {
+    expect(sortChampionsDescend(campeones)).toEqual(campeones3)
+    
   })
-
-  it('is Joyce', () => {
-    expect(miNombre).toBe('Joyce')
-  })
-});
