@@ -18,17 +18,17 @@ Para esto se escogió filtrar a los campeones por su rol y su dificultad, enlaza
 ## 2. Prototipos.
 
 Procesos de creación de prototipo de baja fidelidad:
- Se penso que al momento de entrar a la pagina pudieran visualizarse todos los campeones y su nombre en una barra debajo de la imagen de pesonaje y junto a el nombre su respectivo rol o roles.
+ Se pensó que al momento de entrar a la página pudieran visualizarse todos los campeones y su nombre en una barra debajo de la imagen de personaje y junto al nombre su respectivo rol o roles.
 
  ![Prototiposdebajafidelidad](./src/Elementos/Prototipo%201.png)
 
  ![Prototipodebajafidelidad2](./src/Elementos/Prototipo%202.png)
 
- Proceso de creacion de prototipo de alta fidelidad:
- Con base en los prototipos de baja fidelidad se construyo un prototipo de alta fidelidad en figma pensando en como seria nuestro proyecto finalizado, empezando por la visualización de los personajes, su respectivo nombre y los filtro por rol, dificultad y el ordenado por orden alfabético 
+ Proceso de creación de prototipo de alta fidelidad:
+ Con base en los prototipos de baja fidelidad se construyó un prototipo de alta fidelidad en figma pensando en cómo seria nuestro proyecto finalizado, empezando por la visualización de los personajes, su respectivo nombre y los filtros por rol, dificultad y un ordenado alfabético 
 
 ## 3. Historias de usuario.
-* HU 1: HU 1: Yo como jugador de LoL quiero utilizar esta página para conocer a los campeones del juego y decidir conocer cual queda mejor.
+* HU 1: HU 1: Yo como jugador de LoL quiero utilizar esta página para conocer a los campeones del juego y decidir cual queda mejor.
 * HU 2: Yo como jugador de LoL quiero poder filtrar a los personajes por rol para conocer los personajes que tiene el rol que seleccioné
 * HU 3.Yo como jugador de lol quiero poder ordenar los personajes de la A - Z y de Z- A para visualizarlos por la inicial de su nombre
 ## 4. Pruebas unitarias.
