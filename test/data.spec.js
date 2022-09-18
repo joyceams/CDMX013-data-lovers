@@ -1,33 +1,139 @@
-/* eslint-disable no-unused-vars */
-import { example, anotherExample } from '../src/data.js'
+import { filterByTag, sortChampionsAscend, sortChampionsDescend } from '../src/data.js'
+import allData from '../src/data/lol/lol.js'
 
-/* describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function')
-  })
+const champions2 = [
+    {
+      name: "Aatrox",
+    info: {
+      difficulty: 4
+    },
+    tags: ["Fighter", "Tank"]
+  },
+  {
+    name: "Jinx",
+    info: {
+      difficulty: 6
+    },
+    tags: ["Marksman"]
+  },
+  {
+    name: "Lux",
+    info: {
+      difficulty: 5
+    },
+    tags: ["Mage", "Support"]
+  },
+  {
+    name: "Viktor",
+    info: {
+      difficulty: 9
+    },
+    tags: ["Mage"]
+  },
+]
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example')
+const correctFilter = [
+  {
+    name:"Viktor",
+    info: {
+      difficulty: 9
+    },
+    tags: ["Mage"]
+  },
+]
+
+const champions3 = [
+  {
+  name:"Viktor",
+  info: {
+    difficulty: 9
+  },
+  tags: ["Mage"]
+},
+{
+  name: "Lux",
+  info: {
+    difficulty: 5
+  },
+  tags: ["Mage", "Support"]
+},
+{
+  name:"Jinx",
+  info: {
+    difficulty: 6
+  },
+  tags: ["Marksman"]
+},
+  {
+    name:"Aatrox",
+  info: {
+    difficulty: 4
+  },
+  tags: ["Fighter", "Tank"]
+}
+]
+
+const champions = [
+  
+{
+  name:"Jinx",
+  info: {
+    difficulty: 6
+  },
+  tags: ["Marksman"]
+},
+{
+  name:"Viktor",
+  info: {
+    difficulty: 9
+  },
+  tags: ["Mage"]
+},
+{
+  name:"Aatrox",
+info: {
+  difficulty: 4
+},
+tags: ["Fighter", "Tank"]
+},
+{
+  name: "Lux",
+  info: {
+    difficulty: 5
+  },
+  tags: ["Mage", "Support"]
+},
+]
+
+describe('data', () => {
+  it('is an object', () => {
+    expect(typeof allData).toBe('object');
   })
 })
 
-describe('anotherExample', () => {
+const tagSelected = "Mage"
+const difficultySelected = 9
+
+describe('filterByTag', () => {
   it('is a function', () => {
-    expect(typeof anotherExample).toBe('function')
-  })
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG')
-  })
-}) */
-
-describe('pruebaconChristian', () => {
-  const miNombre = 'Joyce'
-  it('is a string', () => {
-    expect(typeof miNombre).toBe('string')
-  })
-
-  it('is Joyce', () => {
-    expect(miNombre).toBe('Joyce')
+    expect(typeof filterByTag).toBe('function')
   })
 })
+
+it('Filters the champions by their tag', () => {
+  expect(filterByTag(champions, tagSelected, difficultySelected)).toEqual(correctFilter);
+})
+
+describe('sortChampionsAscend', () => {
+  it('is a function', () => {
+    expect(typeof sortChampionsAscend).toBe('function')
+  })
+  
+  it('Sorts champions from A to Z', () => {
+    expect(sortChampionsAscend(champions)).toEqual(champions2)
+  })
+})
+  it('Sorts champions from Z to A', () => {
+    expect(sortChampionsDescend(champions)).toEqual(champions3)
+    
+  })

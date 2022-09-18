@@ -1,52 +1,49 @@
-export const filterByRol = (campeones, rolSeleccionado, difficultySeleccionado) => {
+export const filterByTag = (champions, tagSelected, difficultySelected) => {
   
-  let todosLosRoles = []
-  if (rolSeleccionado === 'All' && difficultySeleccionado === 'All') {
-    todosLosRoles = campeones
+  let allTags = []
+  if (tagSelected === 'All' && difficultySelected === 'All') {
+    allTags = champions
   } else {
-    todosLosRoles = campeones.filter(campeon => {
-      let resultado = false
-      if (rolSeleccionado === 'All') {
-        return campeon.info.difficulty === Number(difficultySeleccionado)
-      } else if (difficultySeleccionado === 'All') {
-        for (let j = 0; j < campeon.tags.length; j++) {
-          if (campeon.tags[j] === rolSeleccionado) {
-            resultado = true
+    allTags = champions.filter(champion => {
+      let result = false
+      if (tagSelected === 'All') {
+        return champion.info.difficulty === Number(difficultySelected)
+      } else if (difficultySelected === 'All') {
+        for (let j = 0; j < champion.tags.length; j++) {
+          if (champion.tags[j] === tagSelected) {
+            result = true
             break
           }
         }
       } else {
-        for (let j = 0; j < campeon.tags.length; j++) {
-          if ((campeon.tags[j] === rolSeleccionado) && (campeon.info.difficulty === Number(difficultySeleccionado))) {
-            resultado = true
+        for (let j = 0; j < champion.tags.length; j++) {
+          if ((champion.tags[j] === tagSelected) && (champion.info.difficulty === Number(difficultySelected))) {
+            result = true
             break
           }
         }
       }
-      return resultado
+      return result
     })
   }
-  return todosLosRoles
+  return allTags
 }
 
-export const sortChampionsAscend = (campeones) => {
-  campeones.sort((a, b) => {
+export const sortChampionsAscend = (champions) => {
+  return champions.sort((a, b) => {
     if (a.name < b.name) {
       return -1
     } else { return 1 }
   }
   )
-  return campeones.sort
 }
 
-export const sortChampionsDescend = (campeones) => {
-  campeones.sort((a, b) => {
+export const sortChampionsDescend = (champions) => {
+  return champions.sort((a, b) => {
     if (a.name > b.name) {
       return -1
     } else { return 1 }
   }
   )
-  return campeones.sort
 }
 
-export default { filterByRol, sortChampionsAscend, sortChampionsDescend }
